@@ -1,0 +1,75 @@
+App_Layout:
+
+<App_Layout>:
+    orientation: "vertical"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: .4, 1
+                
+                AnchorLayout:
+                    Label:
+                        text:  "a"
+
+                AnchorLayout:
+                    Label:
+                        text: "b"
+
+                AnchorLayout:
+                    Label:
+                        text: "c"
+
+
+            BoxLayout:
+                orientation: "vertical"
+                AnchorLayout:
+                    TextInput:
+                        id: a_in
+                        size_hint: 0.8, 0.4
+                        multiline: False
+
+                AnchorLayout:
+                    TextInput:
+                        id: b_in
+                        size_hint: 0.8, 0.4
+                        multiline: False
+                    
+                AnchorLayout:
+                    TextInput:
+                        id: c_in
+                        size_hint: 0.8, 0.4
+                        multiline: False
+
+        AnchorLayout:
+            size_hint: 1, 0.2
+            Button:
+                size_hint: None, None
+                size: "100dp", "40dp"
+                text:"Examine"
+                on_press: root.get_values(a_in.text, b_in.text, c_in.text, out)
+
+    Label:
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        id: out
+        font_name: "./fonts/DejaVuSans.ttf"
+        text: "*let your equation be y=ax\u00b2+bx+c \n\n*type the corresponding value \nfor a,b & c in your equation \n\n*if you have nothing \nin the places of a or b or c, \nthen note that your value for the \ncorresponding letter is 1 (not 0) \n\n*use decimal form or p/q (fraction) form \nto insert non integer numbers"
+        color: 0, 0, 0, 1
+
+<Label>:
+#    color: 'black'
+    font_name: "./fonts/DejaVuSans.ttf"
+
+<TextInput>:
+#    color: 'black'
+    font_name: "./fonts/DejaVuSans.ttf"
+
+<Button>:
+    background_color: 191/255, 1, 0, 1
+    #color: 'white'
+    font_name: "./fonts/DejaVuSans.ttf"
